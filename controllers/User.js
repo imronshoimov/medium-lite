@@ -56,4 +56,16 @@ const loginUser = async (req, res) => {
     });
 };
 
-module.exports = { registerUser, loginUser };
+const getAllUsers = async (req, res) => {
+  userModel
+    .getAllUsers(req.query)
+    .then((users) => res.status(200).send(users))
+    .catch((err) => {
+      res.status(400).json({
+        code: code.BAD_REQUEST,
+        message: err.message,
+      });
+    });
+};
+
+module.exports = { registerUser, loginUser, getAllUsers };

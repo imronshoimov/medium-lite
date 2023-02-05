@@ -49,4 +49,33 @@ const getUser = (data) => {
   });
 };
 
-module.exports = { insertUser, getUser };
+const getAllUsers = (query) => {
+  return new Promise((resolve, reject) => {
+    const pageSize = parseInt(query.size) || 10;
+    const pageNum = parseInt(query.num) || 1;
+
+    db.all(
+      `
+        SELECT 
+          user.email,
+          user.password,
+          post.title,
+          post.content
+        FROM user
+        INNER JOIN post
+        ON user.id = post.author
+        LIMIT ${pageSize} OFFSET ${pageNum}`,
+      function (err, users) {
+        if (err) reject(`Error getting all users: ${err}`);
+
+        db.get("SELECT count(id) FROM user", function (err, count) {
+          if (err) reject(`Error getting counts of posts: ${err}`);
+
+          resolve({ users, count: count["count(id)"] });
+        });
+      }
+    );
+  });
+};
+
+module.exports = { insertUser, getUser, getAllUsers };
