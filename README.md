@@ -18,3 +18,5 @@ In order to run:
 
 - npm start
 - npm run dev
+
+For .env file, see .env.example file and put any port for PORT and any secret key for SECRET_KEY whatever you want!
