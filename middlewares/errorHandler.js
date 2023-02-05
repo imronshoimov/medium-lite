@@ -1,4 +1,5 @@
 const errorHandler = (err, req, res, next) => {
+  console.log(req.body, "body");
   console.error(err.stack);
 
   if (err instanceof MyError) {
@@ -6,6 +7,8 @@ const errorHandler = (err, req, res, next) => {
   } else {
     res.status(500).json({ error: "Internal server error" });
   }
+
+  next();
 };
 
 module.exports = errorHandler;

@@ -1,12 +1,15 @@
 CREATE TABLE user(
-  id serial primary key,
-  email varchar(128) not null unique,
-  password varchar(128) not null
+  id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  email VARCHAR(128) NOT NULL UNIQUE,
+  password VARCHAR(128) NOT NULL,
+  is_exist BOOLEAN DEFAULT false,
+  created_at TIMESTAMPTZ DEFAULT current_timestamp
 );
 
 CREATE TABLE post(
-  id serial primary key,
-  title varchar(256) not null,
-  content text not null,
-  author int not null references user(id)
+  id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  title VARCHAR(256) NOT NULL,
+  content TEXT NOT NULL,
+  author INTEGER NOT NULL references user(id),
+  created_at TIMESTAMPTZ DEFAULT current_timestamp
 );
