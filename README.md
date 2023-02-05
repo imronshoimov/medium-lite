@@ -1,6 +1,6 @@
 # medium-lite
 ​
-MEDIA LIGHT
+MEDIUM LITE
 ​
 ## Getting Started
 ​
