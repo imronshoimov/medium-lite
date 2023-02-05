@@ -1,6 +1,6 @@
-const userModel = require("../models/User");
+const userModel = require("../models/user");
 const code = require("../config/status");
-const { sign } =require("../lib/jwt")
+const { sign } = require("../lib/jwt")
 
 const insertUser = async (req, res) => {
   const key = ["email", "password"];
@@ -16,7 +16,7 @@ const insertUser = async (req, res) => {
 
   userModel.insertUser(req.body)
     .then(user => {
-      const token = sign({ user: user.id })
+      const token = sign({ id: user.id, email: user.email })
       res.status(201).send({ token });
     })
     .catch(err => {

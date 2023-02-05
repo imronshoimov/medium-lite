@@ -1,7 +1,25 @@
-POST http://localhost:8080/user
-Content-Type: application/json
+# POST http://localhost:8080/user
+# Content-Type: application/json
 
-{
-    "email": "i42@gmail.com",
-    "password": "i123"
-}
+# {
+#     "email": "i58@gmail.com",
+#     "password": "i123"
+# }
+
+# POST http://localhost:8080/post
+# Content-Type: application/json
+# Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDYsImVtYWlsIjoiaTU4QGdtYWlsLmNvbSIsImlhdCI6MTY3NTYyMzQ4MSwiZXhwIjoxNjc1NzA5ODgxfQ.gMrUwWpXnF5Xy_GcWJ85W5Shbhkq2myuiB8p1QByUGY
+
+# {
+#     "title": "titl1",
+#     "content": "content1",
+#     "author": 44
+# }
+
+# GET http://localhost:8080/posts?size=2&num=2
+# Content-Type: application/json
+# Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDQsImVtYWlsIjoiaTU2QGdtYWlsLmNvbSIsImlhdCI6MTY3NTU5ODcxOCwiZXhwIjoxNjc1Njg1MTE4fQ.QWqduCwCLSJXdDHKDfFqvHIoOjc5-lHXar13AukM9v8
+
+# GET http://localhost:8080/post/10
+# Content-Type: application/json
+# Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NDQsImVtYWlsIjoiaTU2QGdtYWlsLmNvbSIsImlhdCI6MTY3NTU5ODcxOCwiZXhwIjoxNjc1Njg1MTE4fQ.QWqduCwCLSJXdDHKDfFqvHIoOjc5-lHXar13AukM9v8

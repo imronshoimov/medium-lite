@@ -1,5 +1,4 @@
 const db = require("../config/db");
-const code = require("../config/status");
 
 const insertUser = (data) => {
   return new Promise((resolve, reject) => {
@@ -9,12 +8,17 @@ const insertUser = (data) => {
           email,
           password,
           is_exist
-        ) values (?, ?, ?) RETURNING id
+        ) values (?, ?, ?) 
       `,
       [data.email, data.password, true],
       function (err) {
         if (err) reject(`Error inserting user into database: ${err}`);
-        resolve(this.lastID)
+
+        db.get('SELECT * FROM user WHERE id = ?', [this.lastID], function(err, user) {
+          if (err) reject(`Error retrieving inserted user: ${err}`);
+
+          resolve(user)
+        })
       }
     );
   })
