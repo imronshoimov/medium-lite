@@ -8,11 +8,13 @@ These instructions will get you a copy of the project up and running on your loc
 ​
 ### Prerequisites
 
-​
-
 What things you need to install the software and how to install them.
-
 ​
 1. git clone git@github.com:imronshoimov/medium-lite.git
 2. install nodejs
 3. install sqlite3
+
+In order to run: 
+
+npm start
+npm run dev
