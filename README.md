@@ -16,5 +16,5 @@ What things you need to install the software and how to install them.
 
 In order to run: 
 
-npm start
+npm start or
 npm run dev
